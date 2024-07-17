@@ -10,17 +10,17 @@ class PlayerCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[500],
+        backgroundColor: Colors.teal[600],
         title: Text(
           'Player Cards',
-          style: GoogleFonts.pacifico(fontSize: 26,color: Colors.white),
+          style: GoogleFonts.pacifico(fontSize: 26, color: Colors.white),
         ),
         centerTitle: true,
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blueGrey, Colors.grey[300]!],
+            colors: [Colors.teal.shade600, Colors.teal.shade100],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -30,12 +30,13 @@ class PlayerCardScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final player = players[index];
             return Card(
-              elevation: 8,
-              shadowColor: Colors.black87,
+              color: Colors.teal.shade50,
+              elevation: 10,
+              shadowColor: Colors.black54,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(21),
+                borderRadius: BorderRadius.circular(20),
               ),
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -44,26 +45,28 @@ class PlayerCardScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 60,
                       backgroundImage: NetworkImage(player['image']),
+                      backgroundColor: Colors.grey[200],
                     ),
                     const SizedBox(height: 10),
                     Text(
                       player['name'],
                       style: GoogleFonts.poppins(
-                        fontSize: 24,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: Colors.teal.shade900,
                       ),
                     ),
                     Text(
                       player['position'],
                       style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        color: Colors.grey[700],
+                        fontSize: 16,
+                        color: Colors.teal.shade700,
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 1,
-                      color: Colors.grey[400],
+                      color: Colors.teal,
+                      height: 20,
                     ),
                     _buildStatRow('Points per Game', player['stats']['pointsPerGame']),
                     _buildStatRow('Assists per Game', player['stats']['assistsPerGame']),
@@ -86,11 +89,11 @@ class PlayerCardScreen extends StatelessWidget {
         children: [
           Text(
             label,
-            style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54),
+            style: GoogleFonts.poppins(fontSize: 16, color: Colors.teal.shade600),
           ),
           Text(
             value.toString(),
-            style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black87),
+            style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.teal.shade900),
           ),
         ],
       ),
